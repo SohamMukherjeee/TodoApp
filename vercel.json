@@ -11,6 +11,16 @@
         "src": "/(.*)",
         "dest": "/app.js"
       }
-    ]
+    ],
+    "functions": {
+      "api/**/*.js": {
+        "maxDuration": 10,
+        "regions": ["sfo1", "cdg1"]
+      }
+    },
+    "env": {
+      "MONGODB_URL": "@mongodb_url",
+      "PORT": "3000"
+    }
   }
   
