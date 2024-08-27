@@ -2,7 +2,7 @@
     "version": 2,
     "builds": [
       {
-        "src": "app.js",
+        "src": "./app.js",
         "use": "@vercel/node"
       }
     ],
@@ -11,16 +11,5 @@
         "src": "/(.*)",
         "dest": "/app.js"
       }
-    ],
-    "functions": {
-      "api/**/*.js": {
-        "maxDuration": 10,
-        "regions": ["sfo1", "cdg1"]
-      }
-    },
-    "env": {
-      "MONGODB_URL": "@mongodb_url",
-      "PORT": "3000"
-    }
-  }
+    ]  }
   
