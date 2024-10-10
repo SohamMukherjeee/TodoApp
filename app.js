@@ -2,8 +2,6 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const path = require('path');  
-import { fileURLToPath } from 'url';
-
 require('dotenv').config();
 
 const app = express();
@@ -13,9 +11,6 @@ app.set("view engine", "ejs");
 app.set('views', path.join(__dirname, 'views'));  // Specify the views directory
 
 app.use(express.urlencoded({ extended: true }));
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-
 app.use(express.static(__dirname + "/public/"));
 
 const PORT = process.env.PORT || 3000;
