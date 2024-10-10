@@ -1,18 +1,22 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
-const path = require('path');  // Include path module
+const path = require('path');  
+import { fileURLToPath } from 'url';
+
 require('dotenv').config();
 
 const app = express();
 let workList = [];
 
-// Set the view engine and the views directory
 app.set("view engine", "ejs");
 app.set('views', path.join(__dirname, 'views'));  // Specify the views directory
 
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static('public')); // Static files location
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+app.use(express.static(__dirname + "/public/"));
 
 const PORT = process.env.PORT || 3000;
 const MONGODB_URL = process.env.MONGODB_URL;
